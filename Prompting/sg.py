@@ -31,19 +31,13 @@ def generate_numerical(raw_folder, save_path, mode="test", obs_length=15):
 
 
 def output_sentence(target_usage):
-    out = f"There will be {target_usage} visitors."
-
+    out = f"The patient is classified as having {target_usage} condition."
     return out
 
 
 def input_sentence(usage, poi_id, start_date, obs_length):
-    end_day = add_days(start_date, delta_days=obs_length - 1)
-    prediction_day = add_days(start_date, delta_days=obs_length)
-    start_week_day = datetime.datetime.strptime(start_date, '%B %d, %Y').strftime('%A')
-    end_week_day = datetime.datetime.strptime(end_day, '%B %d, %Y').strftime('%A')
-    prediction_week_day = datetime.datetime.strptime(prediction_day, '%B %d, %Y').strftime('%A')
-    num_visits_string = ', '.join(map(str, usage))
-    out = f"From {start_date}, {start_week_day} to {end_day}, {end_week_day}, there were {num_visits_string} people visiting POI {poi_id} on each day. How many people will visit POI {poi_id} on {prediction_day}, {prediction_week_day}?"
+    out = f"The following ECG signal of length 10 seconds, sampled at 8.3 Hz, was recorded. The signal consists of multiple leads representing different heart activities. The possible diagnoses based on the ECG signal are: NORM (Normal), MI (Myocardial Infarction), STTC (ST-T Change), CD (Conduction Disturbance), and HYP (Hypertrophy). **ECG Data: "
+    
 
     return out
 

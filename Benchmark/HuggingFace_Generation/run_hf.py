@@ -380,6 +380,7 @@ def main():
             raise ValueError(
                 f"--text_column' value '{data_args.text_column}' needs to be one of: {', '.join(column_names)}"
             )
+            
     if data_args.summary_column is None:
         summary_column = dataset_columns[1] if dataset_columns is not None else column_names[1]
     else:
@@ -558,6 +559,7 @@ def main():
         trainer.log_metrics("eval", metrics)
         trainer.save_metrics("eval", metrics)
 
+
     if training_args.do_predict:
         logger.info("*** Predict ***")
 
@@ -567,6 +569,7 @@ def main():
             max_length=data_args.val_max_target_length,
             num_beams=data_args.num_beams,
         )
+        
         metrics = predict_results.metrics
         max_predict_samples = (
             data_args.max_predict_samples if data_args.max_predict_samples is not None else len(predict_dataset)

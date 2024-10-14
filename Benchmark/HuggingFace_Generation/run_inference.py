@@ -123,6 +123,7 @@ if __name__ == "__main__":
     elif args.model_name == 'bigbird':
         model = BigBirdPegasusForConditionalGeneration.from_pretrained(args.model_path)
         tokenizer = PegasusTokenizer.from_pretrained(args.model_path)
+        
     model.to(device)
 
     gt_file = os.path.join(args.test_file, "test_y_prompt.txt")
@@ -151,7 +152,6 @@ if __name__ == "__main__":
         f.writelines([x + "\n" for x in all_pred])
         f.close()
     rmse, mae, ms = metric_with_missing_rate(gt_text, all_pred, args.dataset_name)
-    print(f"RMSE: {rmse}")
-    print(f"MAE: {mae}")
+    print(f"ROC_AUC: {rmse}")
     print(f"Missing Rate: {ms}")
 
