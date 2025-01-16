@@ -1,5 +1,5 @@
 # Leveraging Language Models for Binary Classification of ECG Signal
-[KSC2024] Leveraging Language Models for Binary Classification of ECG Signal
+[KSC2024] 학부생논문 : Leveraging Language Models for Binary Classification of ECG Signal
 
 ## Introduction
 This repository is using structure of **PromptCast: A New Prompt-based Learning Paradigm for Time Series Forecasting** (TKDE2023).  
