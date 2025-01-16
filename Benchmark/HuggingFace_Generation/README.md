@@ -9,6 +9,8 @@ run_inference.py: run evaluation on the test set of PTB_XL and return accuracy.
 An example script of training/evaluation is given in example_script.sh
 
 ```bash
+
+# for training a model, use this.
 python3 Benchmark/HuggingFace_Generation/run_hf.py \
     --model_name_or_path t5-base \
     --do_train \
@@ -21,7 +23,7 @@ python3 Benchmark/HuggingFace_Generation/run_hf.py \
     --overwrite_output_dir \
     --predict_with_generate
 
-
+# for testing a model, use this.
 python3 Benchmark/HuggingFace_Generation/run_inference.py \
       -t Dataset/base5000_30_meta_multi \
       -m Benchmark/HuggingFace_Generation/model/Pretrained_t5_ecg30meta \
